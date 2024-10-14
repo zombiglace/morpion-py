@@ -1,9 +1,9 @@
 # morpion-py
 
-p1 - 
+p1 - grille
 
-p2-
+p2- choix de l utilisateur
 
-p3-
+p3-qui est gagnant
 
-p4-
+p4-fonction que genere le jeux
