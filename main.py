@@ -1,4 +1,4 @@
-from turtle import *
+import turtle
 screen.textinput("NIM", "Name of first player:")
 
 #variable cases
@@ -7,7 +7,6 @@ screen.textinput("NIM", "Name of first player:")
 
 #grille
 # Import the turtle module
-import turtle
 
 # Create a new turtle screen and set its background color
 screen = turtle.Screen()
