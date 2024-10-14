@@ -25,6 +25,4 @@ for i in range(size):
 
 turtle.done()
 
-turtle.done()
-
 
