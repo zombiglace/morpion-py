@@ -1,15 +1,15 @@
 import turtle
-
+t = turtle.Turtle()
 #variable cases
 
 #interraction
 
 #grille
-t = turtle.Turtle()
+
 
 size = 3
 
-cell_size = 30
+cell_size = 100
 
 for i in range(size):
     for j in range(size):
@@ -22,6 +22,8 @@ for i in range(size):
     t.right(90)
     t.forward(cell_size)
     t.left(90)
+
+turtle.done()
 
 turtle.done()
 
