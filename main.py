@@ -21,5 +21,6 @@ for i in range(4):
 
 # Keep the window open until the user closes it
 turtle.done()
+input("nom")
 #verification victoire
 
