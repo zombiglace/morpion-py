@@ -25,7 +25,7 @@ size = 3
 cell_size = 60 
 
 
-turtle.speed(0)  
+turtle.speed(-80)  
 turtle.penup()
 turtle.setposition(-cell_size * size / 2, cell_size * size / 2) 
 turtle.pendown()
@@ -44,8 +44,33 @@ write_number_in_cell(0, -cell_size, 8)
 write_number_in_cell(cell_size, -cell_size, 9)      
 
 
-for i in range(0, 9):
-    case = turtle.textinput("Choisissez un nombre", "Choisissez un nombre entre 1 et 9:")
-	
+
+#demande user
+for i in range(9):
+
+    player_choice = turtle.textinput("Choisissez un nombre", "Choisissez un nombre entre 1 et 9:")
+
+    
+#rond/croix
+def draw_circle(x, y):
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.circle(20)
+    turte.penup()
+
+def draw_cross(x, y):
+    turtle.penup()
+    turtle.goto(x - 20, y - 20)
+    turtle.pendown()
+    turtle.goto(x + 20, y + 20)
+    turtle.penup()
+    turtle.goto(x + 20, y - 20)
+    turtle.pendown()
+    turtle.goto(x - 20, y + 20)
+    turtle.penup()
+
+#win condition
+
 
 turtle.done()
