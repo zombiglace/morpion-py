@@ -44,7 +44,8 @@ write_number_in_cell(0, -cell_size, 8)
 write_number_in_cell(cell_size, -cell_size, 9)      
 
 
-#ingterface
+for i in range(0, 9):
+    case = turtle.textinput("Choisissez un nombre", "Choisissez un nombre entre 1 et 9:")
+	
 
-# Terminer le dessin
 turtle.done()
