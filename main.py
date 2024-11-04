@@ -22,7 +22,7 @@ def write_number_in_cell(x, y, number):
 
 
 size = 3 
-cell_size = 50 
+cell_size = 60 
 
 
 turtle.speed(0)  
