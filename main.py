@@ -44,12 +44,16 @@ write_number_in_cell(-cell_size, -cell_size, 7)
 write_number_in_cell(0, -cell_size, 8)             
 write_number_in_cell(cell_size, -cell_size, 9)      
 
-def draw_circle(x, y):
+def draw_circle(x, y, color):
     turtle.penup()
     turtle.goto(x, y - 20) 
     turtle.pendown()
-    turtle.circle(20)
+    turtle.fillcolor(color)  
+    turtle.begin_fill()     
+    turtle.circle(20)       
+    turtle.end_fill()       
     turtle.penup()
+
 
 def draw_cross(x, y):
     turtle.penup()
@@ -66,22 +70,22 @@ def draw_cross(x, y):
 def check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9):
     # Vérification des lignes horizontales
     if (choix_1 == 'X' and choix_2 == 'X' and choix_3 == 'X') or (choix_4 == 'X' and choix_5 == 'X' and choix_6 == 'X') or (choix_7 == 'X' and choix_8 == 'X' and choix_9 == 'X'):
-        return 'X'
+        return 'black'
     # Vérification des lignes verticales
     if (choix_1 == 'X' and choix_4 == 'X' and choix_7 == 'X') or (choix_2 == 'X' and choix_5 == 'X' and choix_8 == 'X') or (choix_3 == 'X' and choix_6 == 'X' and choix_9 == 'X'):
-        return 'X'
+        return 'black'
     # Vérification des diagonales
     if (choix_1 == 'X' and choix_5 == 'X' and choix_9 == 'X') or (choix_3 == 'X' and choix_5 == 'X' and choix_7 == 'X'):
-        return 'X'
+        return 'black'
     # Répéter pour 'O' ou d'autres conditions de victoire
     if (choix_1 == 'O' and choix_2 == 'O' and choix_3 == 'O') or (choix_4 == 'O' and choix_5 == 'O' and choix_6 == 'O') or (choix_7 == 'O' and choix_8 == 'O' and choix_9 == 'O'):
-        return 'O'
+        return 'white'
     # Vérification des lignes verticales
     if (choix_1 == 'O' and choix_4 == 'O' and choix_7 == 'O') or (choix_2 == 'O' and choix_5 == 'O' and choix_8 == 'O') or (choix_3 == 'O' and choix_6 == 'O' and choix_9 == 'O'):
-        return 'O'
+        return 'white'
     # Vérification des diagonales
     if (choix_1 == 'O' and choix_5 == 'O' and choix_9 == 'O') or (choix_3 == 'O' and choix_5 == 'O' and choix_7 == 'O'):
-        return 'O'
+        return 'white'
     return None  # Aucun gagnant
 
 def display_winner(winner):
@@ -142,9 +146,9 @@ for i in range(9):
                     x, y = get_coordinates(player_choice)
 
                     if tour % 2 == 0:
-                        draw_circle(x, y) 
+                        draw_circle(x, y, "white")
                     else:
-                        draw_cross(x, y) 
+                        draw_circle(x, y, "black") 
                     
                     tour += 1
                     break
