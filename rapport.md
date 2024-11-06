@@ -61,3 +61,5 @@ avec la notion de not in ce qui nous permet de faire en sortent que le joueur ne
 
 Méthodes de Mise au Point, Validation et Débogage
 Ont a mis en place des tests unitaires pour valider les fonctions critiques, comme get_coordinates et check_win. Chaque fois qu'une fonctionnalité était ajoutée, ont s'assurais de l'intégrer dans les tests pour garantir qu'aucune régression ne se produisait. De plus, des sessions de débogage en groupe ont été organisées pour examiner les problèmes ensemble et trouver des solutions efficaces.
+
+Nous avons utilisé idle,vscode, et code writer
