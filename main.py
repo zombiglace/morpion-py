@@ -116,8 +116,7 @@ def get_coordinates(choice):
 
 
 # Initialisation des choix des joueurs
-# Initialisation des choix des joueurs
-choix_1 = choix_2 = choix_3 = choix_4 = choix_5 = choix_6 = choix_7 = choix_8 = choix_9 = None
+choix = [None] * 9  # Liste pour stocker les choix des joueurs
 joueur_symbols = ['O', 'X']
 tour = 0
 
@@ -129,35 +128,17 @@ for i in range(9):
             player_choice = int(player_choice)
             if 1 <= player_choice <= 9:
                 # Vérifie si le choix a déjà été fait
-                if player_choice not in [choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9]:
-                    # Assigne le choix à la variable correspondante
-                    if tour == 0:
-                        choix_1 = joueur_symbols[tour % 2]
-                    elif tour == 1:
-                        choix_2 = joueur_symbols[tour % 2]
-                    elif tour == 2:
-                        choix_3 = joueur_symbols[tour % 2]
-                    elif tour == 3:
-                        choix_4 = joueur_symbols[tour % 2]
-                    elif tour == 4:
-                        choix_5 = joueur_symbols[tour % 2]
-                    elif tour == 5:
-                        choix_6 = joueur_symbols[tour % 2]
-                    elif tour == 6:
-                        choix_7 = joueur_symbols[tour % 2]
-                    elif tour == 7:
-                        choix_8 = joueur_symbols[tour % 2]
-                    elif tour == 8:
-                        choix_9 = joueur_symbols[tour % 2]
-
-
-                                    # Vérifie si le joueur a gagné
-                    winner = check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9)
-                    if winner:
-                        display_winner(winner)
-                        turtle.bye()  # Ferme la fenêtre Turtle
-                        exit()  # Quitte le programme
-                
+                if choix[player_choice - 1] is None:  # Vérifie si la case est vide
+                    choix[player_choice - 1] = joueur_symbols[tour % 2]  # Assigne le symbole au choix
+                    
+                    # Vérifie si le joueur a gagné seulement après 4 coups
+                    if tour >= 4:  # Vérifier seulement après 5 coups
+                        winner = check_win(*choix)
+                        if winner:
+                            display_winner(winner)
+                            turtle.bye()  # Ferme la fenêtre Turtle
+                            exit()  # Quitte le programme
+                    
                     x, y = get_coordinates(player_choice)
 
                     if tour % 2 == 0:
@@ -173,7 +154,6 @@ for i in range(9):
                 turtle.textinput("Erreur", "Veuillez entrer un nombre valide entre 1 et 9.")
         else:
             turtle.textinput("Erreur", "Veuillez entrer un nombre valide entre 1 et 9.")
-
 #win condition
 turtle.done()
 #win condition
