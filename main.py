@@ -62,10 +62,27 @@ def draw_cross(x, y):
     turtle.goto(x - 20, y + 20)
     turtle.penup()
 
-#demande user
-tour = 0
-choix_1 = choix_2 = choix_3 = choix_4 = choix_5 = choix_6 = choix_7 = choix_8 = choix_9 = None
 
+def check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9, joueur):
+    # Vérification des lignes
+    if (choix_1 == joueur and choix_2 == joueur and choix_3 == joueur) or \
+       (choix_4 == joueur and choix_5 == joueur and choix_6 == joueur) or \
+       (choix_7 == joueur and choix_8 == joueur and choix_9 == joueur):
+        return True
+
+    # Vérification des colonnes
+    if (choix_1 == joueur and choix_4 == joueur and choix_7 == joueur) or \
+       (choix_2 == joueur and choix_5 == joueur and choix_8 == joueur) or \
+       (choix_3 == joueur and choix_6 == joueur and choix_9 == joueur):
+        return True
+
+    # Vérification des diagonales
+    if (choix_1 == joueur and choix_5 == joueur and choix_9 == joueur) or \
+       (choix_3 == joueur and choix_5 == joueur and choix_7 == joueur):
+        return True
+
+    return False
+#demande user
 
 def get_coordinates(choice):
     if choice == 1:
@@ -86,6 +103,10 @@ def get_coordinates(choice):
         return (0, -cell_size)
     elif choice == 9:
         return (cell_size, -cell_size)
+
+tour = 0
+choix_1 = choix_2 = choix_3 = choix_4 = choix_5 = choix_6 = choix_7 = choix_8 = choix_9 = None
+
 
 for i in range(9):
     while True:
@@ -115,23 +136,13 @@ for i in range(9):
                         choix_8 = player_choice
                     elif tour == 8:
                         choix_9 = player_choice
+
+                    if check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9, player_choice):
+                        turtle.textinput("Victoire", f"Joueur {tour % 2 + 1} a gagné!")
+                        turtle.bye()  # Ferme la fenêtre Turtle
+                        exit()  # Quitte le programme
                 
-
-                    def verifier_gagnant(tour, choix_1, choix_2, choix_3):
-                        if tour % 2 == 0:
-                            if choix_1 and choix_2 and choix_3:
-                                print("Les ronds ont gagné !")
-                                turtle.done()
-                                return True
-                        else:  # C'est le tour du joueur 2
-                            if choix_1 and choix_2 and choix_3:
-                                print("Les croix ont gagné !")
-
-                                turtle.done()
-                        return False
-
                     x, y = get_coordinates(player_choice)
-
 
                     if tour % 2 == 0:
                         draw_circle(x, y) 
