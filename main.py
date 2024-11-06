@@ -63,26 +63,60 @@ def draw_cross(x, y):
     turtle.penup()
 
 
-def check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9, joueur):
-    # Vérification des lignes
-    if (choix_1 == joueur and choix_2 == joueur and choix_3 == joueur) or \
-       (choix_4 == joueur and choix_5 == joueur and choix_6 == joueur) or \
-       (choix_7 == joueur and choix_8 == joueur and choix_9 == joueur):
-        return True
+def check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9):
+    # Vérification des lignes horizontales
+    if (choix_1 == 'X' and choix_2 == 'X' and choix_3 == 'X'):
+        return 1  # Joueur 1 (X) a gagné
+    elif (choix_4 == 'X' and choix_5 == 'X' and choix_6 == 'X'):
+        return 1
+    elif (choix_7 == 'X' and choix_8 == 'X' and choix_9 == 'X'):
+        return 1
 
     # Vérification des colonnes
-    if (choix_1 == joueur and choix_4 == joueur and choix_7 == joueur) or \
-       (choix_2 == joueur and choix_5 == joueur and choix_8 == joueur) or \
-       (choix_3 == joueur and choix_6 == joueur and choix_9 == joueur):
-        return True
+    if (choix_1 == 'X' and choix_4 == 'X' and choix_7 == 'X'):
+        return 1
+    elif (choix_2 == 'X' and choix_5 == 'X' and choix_8 == 'X'):
+        return 1
+    elif (choix_3 == 'X' and choix_6 == 'X' and choix_9 == 'X'):
+        return 1
 
     # Vérification des diagonales
-    if (choix_1 == joueur and choix_5 == joueur and choix_9 == joueur) or \
-       (choix_3 == joueur and choix_5 == joueur and choix_7 == joueur):
-        return True
+    if (choix_1 == 'X' and choix_5 == 'X' and choix_9 == 'X'):
+        return 1
+    elif (choix_3 == 'X' and choix_5 == 'X' and choix_7 == 'X'):
+        return 1
 
-    return False
-#demande user
+    # Vérification pour le joueur 2 (O)
+    if (choix_1 == 'O' and choix_2 == 'O' and choix_3 == 'O'):
+        return 2  # Joueur 2 (O) a gagné
+    elif (choix_4 == 'O' and choix_5 == 'O' and choix_6 == 'O'):
+        return 2
+    elif (choix_7 == 'O' and choix_8 == 'O' and choix_9 == 'O'):
+        return 2
+
+    # Vérification des colonnes pour O
+    if (choix_1 == 'O' and choix_4 == 'O' and choix_7 == 'O'):
+        return 2
+    elif (choix_2 == 'O' and choix_5 == 'O' and choix_8 == 'O'):
+        return 2
+    elif (choix_3 == 'O' and choix_6 == 'O' and choix_9 == 'O'):
+        return 2
+
+    # Vérification des diagonales pour O
+    if (choix_1 == 'O' and choix_5 == 'O' and choix_9 == 'O'):
+        return 2
+    elif (choix_3 == 'O' and choix_5 == 'O' and choix_7 == 'O'):
+        return 2
+
+    return 0  # Aucun gagnant
+
+def display_winner(winner):
+    turtle.textinput("Victoire", f"Joueur {winner} a gagné!")
+    turtle.bye()  # Ferme la fenêtre Turtle
+    exit()  # Quitte le programme
+
+# Dans la boucle principale
+
 
 def get_coordinates(choice):
     if choice == 1:
@@ -104,9 +138,14 @@ def get_coordinates(choice):
     elif choice == 9:
         return (cell_size, -cell_size)
 
-tour = 0
-choix_1 = choix_2 = choix_3 = choix_4 = choix_5 = choix_6 = choix_7 = choix_8 = choix_9 = None
+# Initialisation des choix des joueurs
 
+
+# Initialisation des choix des joueurs
+# Initialisation des choix des joueurs
+choix_1 = choix_2 = choix_3 = choix_4 = choix_5 = choix_6 = choix_7 = choix_8 = choix_9 = None
+joueur_symbols = ['O', 'X']
+tour = 0
 
 for i in range(9):
     while True:
@@ -119,26 +158,29 @@ for i in range(9):
                 if player_choice not in [choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9]:
                     # Assigne le choix à la variable correspondante
                     if tour == 0:
-                        choix_1 = player_choice
+                        choix_1 = joueur_symbols[tour % 2]
                     elif tour == 1:
-                        choix_2 = player_choice
+                        choix_2 = joueur_symbols[tour % 2]
                     elif tour == 2:
-                        choix_3 = player_choice
+                        choix_3 = joueur_symbols[tour % 2]
                     elif tour == 3:
-                        choix_4 = player_choice
+                        choix_4 = joueur_symbols[tour % 2]
                     elif tour == 4:
-                        choix_5 = player_choice
+                        choix_5 = joueur_symbols[tour % 2]
                     elif tour == 5:
-                        choix_6 = player_choice
+                        choix_6 = joueur_symbols[tour % 2]
                     elif tour == 6:
-                        choix_7 = player_choice
+                        choix_7 = joueur_symbols[tour % 2]
                     elif tour == 7:
-                        choix_8 = player_choice
+                        choix_8 = joueur_symbols[tour % 2]
                     elif tour == 8:
-                        choix_9 = player_choice
+                        choix_9 = joueur_symbols[tour % 2]
 
-                    if check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9, player_choice):
-                        turtle.textinput("Victoire", f"Joueur {tour % 2 + 1} a gagné!")
+                    print(f"Choix après le tour {tour}: {choix_1}, {choix_2}, {choix_3}, {choix_4}, {choix_5}, {choix_6}, {choix_7}, {choix_8}, {choix_9}")
+                    # Vérifie si le joueur a gagné
+                    winner = check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9)
+                    if winner:
+                        display_winner(winner)
                         turtle.bye()  # Ferme la fenêtre Turtle
                         exit()  # Quitte le programme
                 
@@ -158,9 +200,6 @@ for i in range(9):
         else:
             turtle.textinput("Erreur", "Veuillez entrer un nombre valide entre 1 et 9.")
 
-
 #win condition
-
-
-
 turtle.done()
+#win condition
