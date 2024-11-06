@@ -17,7 +17,7 @@ Logique du Jeu : J'ai été responsable de l'implémentation de la logique du je
 Tests et Débogage : Un autre membre s'est concentré sur les tests et le débogage, en s'assurant que le programme fonctionnait comme prévu.
 
 Gestion du Temps
-Nous avons établi travaillé sur le projet certain mercredi ainsi qu'en cours.
+Nous avons établi travaillé sur le projet certains mercredi ainsi qu'en cours.
 
 Partage d'Informations
 Nous avons utilisé un chat créer par julien qui a été bloquer par le lycée ce lundi 3 Novembre ce qui nous a ensuite causer des problemes de communication, et pour le partage du code nous avons utilisé github.
