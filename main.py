@@ -65,50 +65,24 @@ def draw_cross(x, y):
 
 def check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9):
     # Vérification des lignes horizontales
-    if (choix_1 == 'X' and choix_2 == 'X' and choix_3 == 'X'):
-        return 1  # Joueur 1 (X) a gagné
-    elif (choix_4 == 'X' and choix_5 == 'X' and choix_6 == 'X'):
-        return 1
-    elif (choix_7 == 'X' and choix_8 == 'X' and choix_9 == 'X'):
-        return 1
-
-    # Vérification des colonnes
-    if (choix_1 == 'X' and choix_4 == 'X' and choix_7 == 'X'):
-        return 1
-    elif (choix_2 == 'X' and choix_5 == 'X' and choix_8 == 'X'):
-        return 1
-    elif (choix_3 == 'X' and choix_6 == 'X' and choix_9 == 'X'):
-        return 1
-
+    if (choix_1 == 'X' and choix_2 == 'X' and choix_3 == 'X') or (choix_4 == 'X' and choix_5 == 'X' and choix_6 == 'X') or (choix_7 == 'X' and choix_8 == 'X' and choix_9 == 'X'):
+        return 'X'
+    # Vérification des lignes verticales
+    if (choix_1 == 'X' and choix_4 == 'X' and choix_7 == 'X') or (choix_2 == 'X' and choix_5 == 'X' and choix_8 == 'X') or (choix_3 == 'X' and choix_6 == 'X' and choix_9 == 'X'):
+        return 'X'
     # Vérification des diagonales
-    if (choix_1 == 'X' and choix_5 == 'X' and choix_9 == 'X'):
-        return 1
-    elif (choix_3 == 'X' and choix_5 == 'X' and choix_7 == 'X'):
-        return 1
-
-    # Vérification pour le joueur 2 (O)
-    if (choix_1 == 'O' and choix_2 == 'O' and choix_3 == 'O'):
-        return 2  # Joueur 2 (O) a gagné
-    elif (choix_4 == 'O' and choix_5 == 'O' and choix_6 == 'O'):
-        return 2
-    elif (choix_7 == 'O' and choix_8 == 'O' and choix_9 == 'O'):
-        return 2
-
-    # Vérification des colonnes pour O
-    if (choix_1 == 'O' and choix_4 == 'O' and choix_7 == 'O'):
-        return 2
-    elif (choix_2 == 'O' and choix_5 == 'O' and choix_8 == 'O'):
-        return 2
-    elif (choix_3 == 'O' and choix_6 == 'O' and choix_9 == 'O'):
-        return 2
-
-    # Vérification des diagonales pour O
-    if (choix_1 == 'O' and choix_5 == 'O' and choix_9 == 'O'):
-        return 2
-    elif (choix_3 == 'O' and choix_5 == 'O' and choix_7 == 'O'):
-        return 2
-
-    return 0  # Aucun gagnant
+    if (choix_1 == 'X' and choix_5 == 'X' and choix_9 == 'X') or (choix_3 == 'X' and choix_5 == 'X' and choix_7 == 'X'):
+        return 'X'
+    # Répéter pour 'O' ou d'autres conditions de victoire
+    if (choix_1 == 'O' and choix_2 == 'O' and choix_3 == 'O') or (choix_4 == 'O' and choix_5 == 'O' and choix_6 == 'O') or (choix_7 == 'O' and choix_8 == 'O' and choix_9 == 'O'):
+        return 'O'
+    # Vérification des lignes verticales
+    if (choix_1 == 'O' and choix_4 == 'O' and choix_7 == 'O') or (choix_2 == 'O' and choix_5 == 'O' and choix_8 == 'O') or (choix_3 == 'O' and choix_6 == 'O' and choix_9 == 'O'):
+        return 'O'
+    # Vérification des diagonales
+    if (choix_1 == 'O' and choix_5 == 'O' and choix_9 == 'O') or (choix_3 == 'O' and choix_5 == 'O' and choix_7 == 'O'):
+        return 'O'
+    return None  # Aucun gagnant
 
 def display_winner(winner):
     turtle.textinput("Victoire", f"Joueur {winner} a gagné!")
@@ -176,8 +150,8 @@ for i in range(9):
                     elif tour == 8:
                         choix_9 = joueur_symbols[tour % 2]
 
-                    print(f"Choix après le tour {tour}: {choix_1}, {choix_2}, {choix_3}, {choix_4}, {choix_5}, {choix_6}, {choix_7}, {choix_8}, {choix_9}")
-                    # Vérifie si le joueur a gagné
+
+                                    # Vérifie si le joueur a gagné
                     winner = check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9)
                     if winner:
                         display_winner(winner)
