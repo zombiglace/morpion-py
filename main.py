@@ -65,23 +65,15 @@ def draw_cross(x, y):
 
 def check_win(choix_1, choix_2, choix_3, choix_4, choix_5, choix_6, choix_7, choix_8, choix_9, joueur):
     # Vérification des lignes
-    if (choix_1 == joueur and choix_2 == joueur and choix_3 == joueur) or \
-       (choix_4 == joueur and choix_5 == joueur and choix_6 == joueur) or \
-       (choix_7 == joueur and choix_8 == joueur and choix_9 == joueur):
+    if (choix_1 == joueur and choix_4 == joueur and choix_7 == joueur):
+        print(f"Joueur {joueur} a gagné par la colonne 1!")
         return True
-
-    # Vérification des colonnes
-    if (choix_1 == joueur and choix_4 == joueur and choix_7 == joueur) or \
-       (choix_2 == joueur and choix_5 == joueur and choix_8 == joueur) or \
-       (choix_3 == joueur and choix_6 == joueur and choix_9 == joueur):
+    elif (choix_2 == joueur and choix_5 == joueur and choix_8 == joueur):
+        print(f"Joueur {joueur} a gagné par la colonne 2!")
         return True
-
-    # Vérification des diagonales
-    if (choix_1 == joueur and choix_5 == joueur and choix_9 == joueur) or \
-       (choix_3 == joueur and choix_5 == joueur and choix_7 == joueur):
+    elif (choix_3 == joueur and choix_6 == joueur and choix_9 == joueur):
+        print(f"Joueur {joueur} a gagné par la colonne 3!")
         return True
-
-    return False
 #demande user
 
 def get_coordinates(choice):
