@@ -1,3 +1,18 @@
+import turtle
+turtle.hideturtle()
+# Fonction pour dessiner la grille
+def draw_grid(size, cell_size):
+    for i in range(size):
+        for j in range(size):
+            for _ in range(4):
+                
+                turtle.forward(cell_size)
+                turtle.right(90)
+            turtle.forward(cell_size)
+        turtle.backward(cell_size * size)
+        turtle.right(90)
+        turtle.forward(cell_size)
+        turtle.left(90)
 
 
 def write_number_in_cell(x, y, number):
