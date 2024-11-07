@@ -4,9 +4,9 @@ p1 - grille
 
 p2- choix de l utilisateur
 
-p3-qui est gagnant
+p3- systeme de tour rond black/white
 
-verifier les conditions de victoire
+p4-verifier les conditions de victoire
   
 
 
