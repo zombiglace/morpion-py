@@ -189,8 +189,9 @@ for i in range(9):
                     case_9 = symbol_player_1 if tour % 2 == 0 else symbol_player_2
                     draw_circle(cell_size, -cell_size, color_player_1 if tour % 2 == 0 else color_player_2)  # Dessiner un cercle
                 else:
-                    print("Cette case est déjà occupée. Choisissez une autre case.")
+                    turtle.textinput("Case occupée", "Cette case est déjà occupée. Choisissez une autre case.")  # Afficher un message d'erreur
                     continue  # Continuer à demander un choix
+
 
                 # Vérifier si le joueur a gagné seulement après 4 coups
                 if tour >= 4:  # Vérifier seulement après 5 coups
