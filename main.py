@@ -120,9 +120,70 @@ def get_coordinates(choice):
 
 
 # Initialisation des choix des joueurs
-choix = [None] * 9  # Liste pour stocker les choix des joueurs
+# Initialisation des symboles et du tour
 joueur_symbols = ['O', 'X']
 tour = 0
+
+# Initialisation des positions
+case_1 = None
+case_2 = None
+case_3 = None
+case_4 = None
+case_5 = None
+case_6 = None
+case_7 = None
+case_8 = None
+case_9 = None
+
+# Fonction pour afficher le plateau
+def afficher_plateau():
+    print(f"{case_1 or '1'} | {case_2 or '2'} | {case_3 or '3'}")
+    print("--+---+--")
+    print(f"{case_4 or '4'} | {case_5 or '5'} | {case_6 or '6'}")
+    print("--+---+--")
+    print(f"{case_7 or '7'} | {case_8 or '8'} | {case_9 or '9'}")
+
+# Fonction principale du jeu
+def jouer():
+    global tour, case_1, case_2, case_3, case_4, case_5, case_6, case_7, case_8, case_9
+    while True:
+        afficher_plateau()
+        choix = input(f"Joueur {joueur_symbols[tour % 2]} choisissez une case (1-9) : ")
+
+        # Validation de l'entrée
+        if choix.isdigit() and 1 <= int(choix) <= 9:
+            case_num = int(choix)
+
+            # Vérification si la case est déjà prise
+            if case_num == 1 and case_1 is None:
+                case_1 = joueur_symbols[tour % 2]
+            elif case_num == 2 and case_2 is None:
+                case_2 = joueur_symbols[tour % 2]
+            elif case_num == 3 and case_3 is None:
+                case_3 = joueur_symbols[tour % 2]
+            elif case_num == 4 and case_4 is None:
+                case_4 = joueur_symbols[tour % 2]
+            elif case_num == 5 and case_5 is None:
+                case_5 = joueur_symbols[tour % 2]
+            elif case_num == 6 and case_6 is None:
+                case_6 = joueur_symbols[tour % 2]
+            elif case_num == 7 and case_7 is None:
+                case_7 = joueur_symbols[tour % 2]
+            elif case_num == 8 and case_8 is None:
+                case_8 = joueur_symbols[tour % 2]
+            elif case_num == 9 and case_9 is None:
+                case_9 = joueur_symbols[tour % 2]
+            else:
+                print("Cette case est déjà prise. Choisissez une autre case.")
+                continue
+
+            # Changer de tour
+            tour += 1
+        else:
+            print("Choix invalide. Veuillez entrer un numéro entre 1 et 9.")
+
+# Lancer le jeu
+jouer()
 
 for i in range(9):
     while True:
