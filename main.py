@@ -43,7 +43,7 @@ write_number_in_cell(cell_size, -cell_size, 9)
 
 def draw_circle(x, y, color):
     turtle.penup()
-    turtle.goto(x - 10, y - 10)  # Ajuste la position pour centrer le cercle
+    turtle.goto(x, y-10)  # Ajuste la position pour centrer le cercle
     turtle.pendown()
     turtle.fillcolor(color)  
     turtle.begin_fill()     
@@ -51,16 +51,7 @@ def draw_circle(x, y, color):
     turtle.end_fill()       
     turtle.penup()
 
-def draw_cross(x, y):
-    turtle.penup()
-    turtle.goto(x - 20, y - 20)
-    turtle.pendown()
-    turtle.goto(x + 20, y + 20)
-    turtle.penup()
-    turtle.goto(x + 20, y - 20)
-    turtle.pendown()
-    turtle.goto(x - 20, y + 20)
-    turtle.penup()
+
 
 def check_win(case_1, case_2, case_3, case_4, case_5, case_6, case_7, case_8, case_9):
     # Vérification des lignes horizontales
