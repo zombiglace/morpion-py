@@ -20,7 +20,7 @@ Gestion du Temps
 Nous avons travaillés sur le projet certains mercredi ainsi qu'en cours.
 
 Partage d'Informations
-Nous avons utilisé un chat créer par julien qui a été bloquer par le lycée ce lundi 3 Novembre ce qui nous a ensuite causer des problemes de communication, et pour le partage du code nous avons utilisé github.
+Nous avons utilisé un chat créer par julien qui a été bloquer par le lycée le lundi 3 Novembre ce qui nous a ensuite causer des problemes de communication, et pour le partage du code nous avons utilisé github.
 
 Choix de Structure de Données
 Pour ce projet, nous avons choisi d'utiliser des variables simples pour stocker les choix des joueurs (
