@@ -18,13 +18,13 @@ def draw_grid(size, cell_size):
 def write_number_in_cell(x, y, number):
     turtle.penup()
     turtle.setposition(x + 25, y - 35)  
-    turtle.write(str(number), align="center", font=("Arial", 16, "normal"))
+    turtle.write(str(number), align="center", font=("Arial", 12, "normal"))
     turtle.pendown()  
 
 size = 3 
-cell_size = 60 
+cell_size = 50 
 
-turtle.speed(-500)  
+turtle.speed(0)  
 turtle.penup()
 turtle.setposition(-cell_size * size / 2, cell_size * size / 2) 
 turtle.pendown()
@@ -43,12 +43,12 @@ write_number_in_cell(cell_size, -cell_size, 9)
 
 def draw_circle(x, y, color):
     turtle.penup()
-    turtle.goto(x, y-10)  # Ajuste la position pour centrer le cercle
+    turtle.goto(x, y - 20)  
     turtle.pendown()
-    turtle.fillcolor(color)  
-    turtle.begin_fill()     
-    turtle.circle(20)       
-    turtle.end_fill()       
+    turtle.fillcolor(color)
+    turtle.begin_fill()
+    turtle.circle(20)
+    turtle.end_fill()
     turtle.penup()
 
 
