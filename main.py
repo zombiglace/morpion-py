@@ -1,11 +1,12 @@
 import turtle
+
 turtle.hideturtle()
+
 # Fonction pour dessiner la grille
 def draw_grid(size, cell_size):
     for i in range(size):
         for j in range(size):
             for _ in range(4):
-                
                 turtle.forward(cell_size)
                 turtle.right(90)
             turtle.forward(cell_size)
@@ -14,23 +15,19 @@ def draw_grid(size, cell_size):
         turtle.forward(cell_size)
         turtle.left(90)
 
-
 def write_number_in_cell(x, y, number):
     turtle.penup()
     turtle.setposition(x + 25, y - 35)  
-    turtle.write(str(number), align="center", font=("Arial", 16, "normal"))
+    turtle.write(str(number), align="center", font=("Arial", 12, "normal"))
     turtle.pendown()  
 
-
 size = 3 
-cell_size = 60 
+cell_size = 50 
 
-
-turtle.speed(-500)  
+turtle.speed(0)  
 turtle.penup()
 turtle.setposition(-cell_size * size / 2, cell_size * size / 2) 
 turtle.pendown()
-
 
 draw_grid(size, cell_size)
 
@@ -46,25 +43,14 @@ write_number_in_cell(cell_size, -cell_size, 9)
 
 def draw_circle(x, y, color):
     turtle.penup()
-    turtle.goto(x, y)  # Centrer le cercle à la position (x, y)
+    turtle.goto(x, y - 20)  
     turtle.pendown()
-    turtle.fillcolor(color)  
-    turtle.begin_fill()     
-    turtle.circle(20)       
+    turtle.fillcolor(color)
+    turtle.begin_fill()
+    turtle.circle(20)
     turtle.end_fill()
     turtle.penup()
 
-
-def draw_cross(x, y):
-    turtle.penup()
-    turtle.goto(x - 20, y - 20)
-    turtle.pendown()
-    turtle.goto(x + 20, y + 20)
-    turtle.penup()
-    turtle.goto(x + 20, y - 20)
-    turtle.pendown()
-    turtle.goto(x - 20, y + 20)
-    turtle.penup()
 
 
 def check_win(case_1, case_2, case_3, case_4, case_5, case_6, case_7, case_8, case_9):
@@ -88,15 +74,12 @@ def check_win(case_1, case_2, case_3, case_4, case_5, case_6, case_7, case_8, ca
         return 'white'
     return None
 
-
-
 def display_winner(winner):
     turtle.textinput("Victoire", f"Joueur {winner} a gagné!")
     turtle.bye()  # Ferme la fenêtre Turtle
     exit()  # Quitte le programme
 
 # Dans la boucle principale
-
 
 def get_coordinates(choice):
     if choice == 1:
@@ -119,25 +102,10 @@ def get_coordinates(choice):
         return (cell_size, -cell_size)
 
 # Initialisation des choix des joueurs
-
-
-# Initialisation des choix des joueurs
-# Initialisation des positions
 symbol_player_1 = 'X'
 symbol_player_2 = 'O'
 color_player_1 = 'black'  # Couleur pour le premier joueur
 color_player_2 = 'white'  # Couleur pour le second joueur
-
-# Fonction pour dessiner un cercle
-def draw_circle(x, y, color):
-    turtle.penup()
-    turtle.goto(x, y - 20) 
-    turtle.pendown()
-    turtle.fillcolor(color)  
-    turtle.begin_fill()     
-    turtle.circle(20)       
-    turtle.end_fill()       
-    turtle.penup()
 
 # Initialisation des choix des joueurs
 case_1 = None
@@ -150,7 +118,7 @@ case_7 = None
 case_8 = None
 case_9 = None
 tour = 0
-cell_size = 50  # Taille de la cellule, ajustez selon vos besoins
+cell_size = 50 
 
 # Dans la boucle principale
 for i in range(9):
@@ -192,7 +160,6 @@ for i in range(9):
                     turtle.textinput("Case occupée", "Cette case est déjà occupée. Choisissez une autre case.")  # Afficher un message d'erreur
                     continue  # Continuer à demander un choix
 
-
                 # Vérifier si le joueur a gagné seulement après 4 coups
                 if tour >= 4:  # Vérifier seulement après 5 coups
                     winner = check_win(case_1, case_2, case_3, case_4, case_5, case_6, case_7, case_8, case_9)
@@ -204,4 +171,3 @@ for i in range(9):
         else:
             print("Choix invalide. Veuillez choisir un nombre entre 1 et 9.")
 turtle.done()
-#win condition
