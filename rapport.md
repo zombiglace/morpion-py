@@ -8,7 +8,7 @@ Au cours du développement, plusieurs difficultés ont été rencontrées :
 Vérification des Conditions de Victoire : Implémenter une logique robuste pour déterminer si un joueur a gagné a nécessité des tests approfondis pour s'assurer que toutes les conditions étaient couvertes, ainsi que le systeme de tour.  
 
 Partage des Tâches
-Dans notre groupe, nous avons divisé les tâches comme suit :
+Dans notre groupe, nous avons divisé les tâches comme :
 
 Conception de l'Interface : Ronan a pris en charge la création de l'interface graphique en utilisant Turtle.
 
