@@ -2,7 +2,7 @@ Introduction Ce rapport fournit un aperçu détaillé de notre projet de créati
 
 Difficultés rencontrées Nous avons rencontré plusieurs défis, notamment :
 
-La vérification des conditions de victoire : La mise en place d'une logique fiable pour déterminer le gagnant a nécessité de nombreux tests pour s'assurer que toutes les conditions étaient bien prises en compte.
+La vérification des conditions de victoire : La mise en place d'une logique pour déterminer le gagnant a nécessité de nombreux tests pour s'assurer que toutes les conditions étaient bien prises en compte.
 
 Partage des tâches Nous avons réparti les tâches de la manière suivante :
 Conception de l'interface : Ronan a créé l'interface graphique avec Turtle.
