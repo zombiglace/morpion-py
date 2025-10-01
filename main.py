@@ -6,7 +6,7 @@ turtle.hideturtle()
 def draw_grid(size, cell_size):
     for i in range(size):
         for j in range(size):
-            for _ in range(4):
+            for i in range(4):
                 turtle.forward(cell_size)
                 turtle.right(90)
             turtle.forward(cell_size)
